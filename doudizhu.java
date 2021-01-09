@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.*;
 
 public class DouDiZhuPro {
     public static void main(String[] args) {
@@ -59,48 +60,15 @@ public class DouDiZhuPro {
         Collections.sort(player02);
         Collections.sort(player03);
         Collections.sort(lowCards);
-
         System.out.println("此次发牌结果如下：");
         System.out.println(num1 + "的手牌：");
-        System.out.print("[");
-        for (int i = 0; i < player01.size(); i++) {
-            if(i==player01.size()-1){
-                System.out.print(cards.get(player01.get(i)));
-            }else{
-                System.out.print(cards.get(player01.get(i))+",");
-            }
-        }
-        System.out.println("]");
+        lookcards(player01,cards);
         System.out.println(num2 + "的手牌：");
-        System.out.print("[");
-        for (int i = 0; i < player02.size(); i++) {
-            if(i==player02.size()-1){
-                System.out.print(cards.get(player02.get(i)));
-            }else{
-                System.out.print(cards.get(player02.get(i))+",");
-            }
-        }
-        System.out.println("]");
+        lookcards(player02,cards);
         System.out.println(num3 + "的手牌：");
-        System.out.print("[");
-        for (int i = 0; i < player03.size(); i++) {
-            if(i==player03.size()-1){
-                System.out.print(cards.get(player03.get(i)));
-            }else{
-                System.out.print(cards.get(player03.get(i))+",");
-            }
-        }
-        System.out.println("]");
+        lookcards(player03,cards);
         System.out.println("底牌：");
-        System.out.print("[");
-        for (int i = 0; i < lowCards.size(); i++) {
-            if(i==lowCards.size()-1){
-                System.out.print(cards.get(lowCards.get(i)));
-            }else{
-                System.out.print(cards.get(lowCards.get(i))+",");
-            }
-        }
-        System.out.println("]");
+        lookcards(lowCards,cards);
 
            /*
         System.out.print("[");                       **********此为打印的第一种格式，但是解决不了最后取消逗号
@@ -125,5 +93,17 @@ public class DouDiZhuPro {
         while*/
 
 
+    }
+    //一个看牌的方法，优化了代码行数，减少了代码的繁琐性
+    public static void lookcards(ArrayList<Integer> arrayList,HashMap<Integer,String> cards){
+        System.out.print("[");
+        for (int i = 0; i < arrayList.size(); i++) {
+            if(i==arrayList.size()-1){
+                System.out.print(cards.get(arrayList.get(i)));
+            }else{
+                System.out.print(cards.get(arrayList.get(i))+",");
+            }
+        }
+        System.out.println("]");
     }
 }
